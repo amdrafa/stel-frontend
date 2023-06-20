@@ -1,4 +1,4 @@
-import { AreasTable } from "../../components/areas-table";
+import { AreasTable } from "../../components/tables/areas-table";
 import { Button } from "../../components/buttons/button-primary";
 import { Header } from "../../components/header";
 import { Input } from "../../components/input";

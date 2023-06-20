@@ -12,19 +12,19 @@ export function Header() {
     const menuOptions = [
         {
             title: "Colaboradores",
-            link: "www.google.com",
+            link: "/collaborators",
         },
         {
             title: "Areas",
-            link: "www.google.com",
+            link: "/areas",
         },
         {
             title: "Centros de custo",
-            link: "www.google.com",
+            link: "/costcenters",
         },
         {
             title: "Relatórios",
-            link: "www.google.com",
+            link: "/reports",
         },
     ];
 
@@ -37,13 +37,13 @@ export function Header() {
             <img src={boschColors} alt="Header colors" />
             <header className="flex justify-between items-center py-6 px-8 bg-white">
                 <div className="flex items-center">
-                    <div className="md:hidden mr-4 text-2xl" onClick={toggleSidebar}>
+                    <div className="md:hidden mr-4 text-2xl cursor-pointer" onClick={toggleSidebar}>
                         <GiHamburgerMenu />
                     </div>
                     <img className="mr-8" width={160} src={logo} alt="Logo bosch" />
-                    <span className="hidden md:flex space-x-4">
+                    <span className="hidden md:flex space-x-4 ">
                         {menuOptions.map((option) => (
-                            <a className="text-lg" key={option.link} href={option.link}>
+                            <a className="text-lg hover:text-primary-500" key={option.link} href={option.link}>
                                 <p>{option.title}</p>
                             </a>
                         ))}
@@ -56,7 +56,7 @@ export function Header() {
                     </a>
                     <span className="flex items-center space-x-2 text-lg cursor-pointer">
                         <img width={30} src={logoutIcon} alt="Logout icon" />
-                        <p>Logout</p>
+                        <p>Sair</p>
                     </span>
                 </div>
             </header>

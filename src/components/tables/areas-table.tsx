@@ -1,4 +1,4 @@
-import editIcon from "../assets/pencil.svg"
+import editIcon from "../../assets/pencil.svg"
 
 interface IAreaContact {
     name: string;
