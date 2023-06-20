@@ -9,10 +9,21 @@ import { Input } from "../../components/input";
 import { AreaContactsTable } from "../../components/tables/area-contacts-table";
 import Modal from 'react-modal';
 import { customModalStyles } from "../../styles/modal-style";
+import { Divider } from "../../components/utils/divider";
+
+interface IAreaContact {
+  id?: number;
+  name: string;
+  email: string;
+}
 
 export function AreasDetail() {
 
     // const { id } = useParams()
+
+    
+
+    const [currentEditContact, setCurrentEditContact] = useState<IAreaContact>()
 
     const [modalIsOpen, setIsOpen] = useState(false);
 
@@ -20,10 +31,6 @@ export function AreasDetail() {
         setIsOpen(true);
       }
     
-      function afterOpenModal() {
-        // references are now sync'd and can be accessed.
-        // subtitle.style.color = '#f00';
-      }
     
       function closeModal() {
         setIsOpen(false);
@@ -37,7 +44,8 @@ export function AreasDetail() {
             {user ? (
                 <main className="p-10">
 
-<button onClick={openModal}>Open Modal</button>
+
+                  <button onClick={openModal}>Open Modal {currentEditContact?.name}</button>
 
                 <div className="flex justify-between items-center mb-8 p-4">
                     <h1 className="text-3xl font-bold">
@@ -91,22 +99,31 @@ export function AreasDetail() {
                <Error404 />
             )}
 
-<Modal
+        <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         style={customModalStyles}
         contentLabel="Area contact modal"
       >
-        <h2>Hello</h2>
-        <button onClick={closeModal}>close</button>
-        <div>I am a modal</div>
-        <form>
-          <input />
-          <button>tab navigatiotab navigationtab navigationn</button>
-          <button>stays</button>
-          <button>inside</button>
-          <button>the modal</button>
-        </form>
+        <div className="">
+        <div className="flex justify-between items-center">
+        <h2 className="text-2xl mb-2 font-semibold">Editar contato</h2>
+        <span>x</span>
+        </div>
+        <Divider />
+        <div className="mt-4 md:grid grid-cols-2 gap-10 items-center">
+                    <Input 
+                    label="Nome"
+                    value="Rafael Amaro"
+                    />
+                    <Input 
+                    label="E-mail"
+                    value="moa2jvl@bosch.com"
+                    />
+                    
+                </div>
+        </div>
+        
       </Modal>
         </>
     )
