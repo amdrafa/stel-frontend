@@ -5,5 +5,5 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 }
 
 export const Button: React.FC<ButtonProps> = ({ text, ...rest }) => {
-    return <button className='bg-primary-500 text-white py-2 px-4 text-lg hover:bg-primary-600' {...rest}>{text}</button>;
+    return <button className='bg-primary-500 h-12 text-white py-2 px-4 text-lg hover:bg-primary-600' {...rest}>{text}</button>;
 };

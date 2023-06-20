@@ -1,6 +1,7 @@
 import editIcon from "../../assets/pencil.svg"
 
 interface IAreaContact {
+    id?: number;
     name: string;
     email: string;
 }
