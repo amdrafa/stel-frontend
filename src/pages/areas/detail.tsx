@@ -77,21 +77,21 @@ export function AreasDetail() {
             <div className=" md:grid grid-cols-2 gap-10 items-center">
               <Input
                 label="Nome"
-                value="Área teste - 01"
+                defaultValue="Área teste - 01"
               />
               <Input
                 label="Descrição"
-                value="Descrição teste - 01"
+                defaultValue="Descrição teste - 01"
               />
               <Input
                 label="Data de atualização"
                 disabled
-                value="19 de Junho de 2023"
+                defaultValue="19 de Junho de 2023"
               />
               <Input
                 label="Responsável pela atualização"
                 disabled
-                value="Rafael Amaro Moreira (moa2jvl)"
+                defaultValue="Rafael Amaro Moreira (moa2jvl)"
               />
             </div>
 

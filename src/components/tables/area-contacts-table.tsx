@@ -31,7 +31,7 @@ export function AreaContactsTable({ contacts }: IAreaContactProps) {
 
     const errorNotification = () => toast.error("Erro na edição do contato.");
 
-    function handleOpenModal(contact: IAreaContact) {
+    function handleOpenEditContactModal(contact: IAreaContact) {
         setIsOpen(true);
         setCurrentEditContact(contact)
     }
@@ -42,9 +42,10 @@ export function AreaContactsTable({ contacts }: IAreaContactProps) {
     }
 
     async function handleEditContact() {
+        console.log(currentEditContact)
         await api
-            .post("/areas/contact", {
-                contacts
+            .put("/areacontact/update", {
+                currentEditContact
             })
             .then((response) => {
                 successNotification()
@@ -100,7 +101,7 @@ export function AreaContactsTable({ contacts }: IAreaContactProps) {
                                 <td className="px-4 py-4 flex justify-end">
                                     <img
                                         onClick={() => {
-                                            handleOpenModal(contact)
+                                            handleOpenEditContactModal(contact)
                                         }}
                                         className="cursor-pointer" src={editIcon} alt="Edit icon" />
                                 </td>
@@ -130,11 +131,11 @@ export function AreaContactsTable({ contacts }: IAreaContactProps) {
                     <div className="mt-4 mb-12 md:grid grid-cols-2 gap-10 items-center">
                         <Input
                             label="Nome"
-                            value={currentEditContact?.name}
+                            defaultValue={currentEditContact?.name}
                         />
                         <Input
                             label="E-mail"
-                            value={currentEditContact?.email}
+                            defaultValue={currentEditContact?.email}
                         />
 
                     </div>
